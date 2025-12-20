@@ -6,5 +6,34 @@ import io.kotest.matchers.shouldBe
 
 @Suppress("unused")
 class AnagramTest: StringSpec({
-    // Write your unit tests here!
+
+    "Strings of different lengths are not anagrams" {
+        withClue("Different lengths should return false") {
+            ("abc" anagramOf "ab") shouldBe false
+        }
+    }
+
+    "Empty string is not an anagram of itself" {
+        withClue("Spec says empty string is not an anagram of itself") {
+            ("" anagramOf "") shouldBe false
+        }
+    }
+
+    "Non-empty string is an anagram of itself" {
+        withClue("A non-empty string should be an anagram of itself") {
+            ("abc" anagramOf "abc") shouldBe true
+        }
+    }
+
+    "Same characters in a different order are anagrams" {
+        withClue("Same letters, different order should return true") {
+            ("listen" anagramOf "silent") shouldBe true
+        }
+    }
+
+    "Letter case is disregarded" {
+        withClue("Case should be ignored") {
+            ("Listen" anagramOf "Silent") shouldBe true
+        }
+    }
 })
