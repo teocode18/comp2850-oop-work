@@ -1,7 +1,5 @@
-// Task 10.1: program in which null values can occur
-
-fun printReversed(text: String) {
-    val result = text.reversed().uppercase()
+fun printReversed(text: String?) {
+    val result = text?.reversed()?.uppercase() ?: "???"
     println("Result: $result")
 }
 

@@ -1,8 +1,5 @@
-// Task 10.3.1: example of an explicit null check
-
-fun printReversed(text: String) {
-    val result = text.reversed().uppercase()
-    println("Result: $result")
+fun printReversed(text: String?) = {
+    println("Result: ${text?.let { it.reversed().uppercase() }}")
 }
 
 fun main() {

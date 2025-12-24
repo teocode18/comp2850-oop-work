@@ -1,14 +1,13 @@
-// Task 10.3.2: another example of an explicit null check
+// Task 10.3.2: program in which null values can occur
 
-fun printReversed(text: String) {   // modify parameter list
-
-    // modify function body to perform a null check
-
-    val result = text.reversed().uppercase()
-    println("Result: $result")
+fun printReversed(text: String?) {
+    when (text) {
+        null -> println("Result: null")
+        else -> println("Result: ${text.reversed().uppercase()}")
+    }
 }
 
-fun main() {
+fun main(args: Array<String>) {
     print("Enter a string: ")
     val input = readLine()
 
